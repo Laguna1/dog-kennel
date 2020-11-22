@@ -1,11 +1,36 @@
-.big-card {
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+.dog-cards {
     justify-content: center;
+    flex-direction: row;
     flex-wrap: wrap;
 }
 
 .dog-card {
-    border: 1px solid black;
+    border: 12px solid lightblue;
+    width: 300px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 20px;
     margin: 10px;
   }
+
+.new-dog {
+    display: none;
+    flex-direction: column;
+    width: 300px;
+    border: 12px solid lightblue;
+    padding: 25px;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+input {
+    height: 35px;
+}
+
+.green-btn {
+    width: 242px;
+}

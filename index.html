@@ -9,17 +9,33 @@
     <title>Dog kennel</title>
 </head>
 <body>
-    <div class="container d-flex flex-column">
-        <div class="h1 text-center mt-5">Our dogs</div>
-        <div id="dogs" class="big-card d-flex">
-
-        </div>
-        <div class="text-center mt-5">
-           <button  onclick="displayDogs()">Show dogs</button>
-        </div>
-      </div>
-
-
+  <div class="container d-flex flex-column text-center">
+    <div class="h1 text-center mt-5" style="color: blue">Our dogs</div>
+ <div class="wrapper">
+  <div id="form" class="new-dog">
+    <label for="title">Name:</label><br>
+    <input type="text" id="name" name="title"><br>
+    <label for="bread">Bread:</label><br>
+    <input type="text" id="bread" name="bread"><br>
+    <label for="age">Age:</label><br>
+    <input type="text" id="age" name="age"><br>
+    <div>
+      <label for="vaccine"> Vaccinated</label><br>
+      <input type="checkbox" id="vaccine" name="vaccine"> 
+    </div>
+    <button onclick="createDog()" class="btn btn-sm btn-success green-btn">Create Dog</button>
+  </div>
+</div>  
+  
+  <div class="text-center">
+  <button onclick="showForm()" class="btn btn-success green-btn my-5">New Dog</button>
+  </div>
+  <div class="dog-cards d-flex" id="dogs">
+  </div>
+  <div class="text-center">
+  <button onclick="displayDogs()" class="btn btn-success green-btn mt-5">Show dogs</button>
+  </div>
+  </div>
     <script src="main.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
   integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
