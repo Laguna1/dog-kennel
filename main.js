@@ -14,13 +14,6 @@ function Dog(name, bread, age, vaccine) {
   this.vaccine = vaccine
 }
 
-Book.prototype.vaccineStatus = (index) => {
-  const newDogVaccine = document.getElementById(`vaccine${index}`);
-  this.vaccine = vaccine.innerHTML === 'Vaccine: Yes' ? 'Yes' : 'No';
-  dogs[index].vaccine = this.vaccine;
-  vaccine.innerHTML = `Vaccinated: ${this.vaccine}`;
-};
-
 
 function addDogToKennel(dog) {
   myKennel.push(dog);
@@ -31,9 +24,9 @@ function deleteDogFromKennel(e) {
   displayDogs()
 }
 
-let dog1 = new Dog('Harry', 'Pug', 5, 'Yes')
-let dog2 = new Dog('Potter2', 'Maltese', 3, 'No')
-let dog3 = new Dog('Tara', 'Doberman', 2, 'Yes')
+let dog1 = new Dog('Harry', 'Pug', 5, true)
+let dog2 = new Dog('Potter2', 'Maltese', 3, false)
+let dog3 = new Dog('Tara', 'Doberman', 2, false)
 addDogToKennel(dog1)
 addDogToKennel(dog2)
 addDogToKennel(dog3)
@@ -49,7 +42,7 @@ function displayDogs(){
       <h4 class="title">Bread: <span class="value">${dog.bread}</span> </h4>
       <h4 class="title">Age: <span class="value">${dog.age}</span> </h4>
       <h4 class="title">Vaccine: <span class="value">${dog.vaccine ? 'Yes' : 'No'}</span> </h4>
-      <button onclick="changeStatus(${index})" class="btn btn-primary my-2">Change Vaccine status</button>
+      <button  class="btn btn-primary my-2">Change Vaccine status</button>
       <button onclick="deleteDogFromKennel(this)" data-id="${index}" class="btn btn-danger">Delete Dog\`s Card</button>
       
       </div>
@@ -80,9 +73,4 @@ function cancelButton() {
     cancelButton.addEventListener('click', () => {
     newDogForm.style.display = 'none';
 })
-}
-
-function changeStatus(index) { 
-  Object.setPrototypeOf(dogs[index], Dog.prototype);
-  dogs[index].vaccineStatus(index);
 }
