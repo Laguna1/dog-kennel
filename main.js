@@ -13,16 +13,13 @@ function Dog(name, bread, age, vaccine) {
   this.age = age 
   this.vaccine = vaccine
 }
-// var vaccine = false;
-// var button = document.getElementById("myButton");
-// button.onclick = function vaccineStatus() {
-//   vaccine = !vaccine;
-//   if (vaccine) {
-//     button.innerHTML = "Yes";
-//   } else {
-//     button.innerHTML = "No";
-//   }
-// }
+
+Book.prototype.vaccineStatus = (index) => {
+  const vaccine = document.getElementById(`vaccine${index}`);
+  this.vaccine = vaccine.innerHTML === 'Vaccinated: Yes' ? 'Yes' : 'No';
+  dogs[index].vaccine = this.vaccine;
+  vaccine.innerHTML = `Vaccinated: ${this.vaccine}`;
+};
 
 
 function addDogToKennel(dog) {
@@ -52,7 +49,7 @@ function displayDogs(){
       <h4 class="title">Bread: <span class="value">${dog.bread}</span> </h4>
       <h4 class="title">Age: <span class="value">${dog.age}</span> </h4>
       <h4 class="title">Vaccine: <span class="value">${dog.vaccine ? 'Yes' : 'No'}</span> </h4>
-      <button onclick="vaccineStatus(this)" id="myButton" class="btn btn-primary mb-2">Change Vaccine status</button>
+      <button onclick="changeStatus(${index})" class="btn btn-primary my-2">Change Vaccine status</button>
       <button onclick="deleteDogFromKennel(this)" data-id="${index}" class="btn btn-danger">Delete Dog\`s Card</button>
     </div>
     `; 
@@ -77,7 +74,7 @@ function createDog() {
   displayDogs()
 }
 
-function vaccineStatus(index) { // eslint-disable-line no-unused-vars
+function changeStatus(index) { 
   Object.setPrototypeOf(dogs[index], Dog.prototype);
   dogs[index].vaccineStatus(index);
 }
